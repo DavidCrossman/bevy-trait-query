@@ -1,3 +1,8 @@
+#![no_std]
+
+extern crate alloc;
+
+use alloc::vec;
 use proc_macro::TokenStream;
 use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
@@ -183,7 +188,7 @@ fn impl_trait_query(arg: TokenStream, item: TokenStream) -> Result<TokenStream2>
             fn iter_access(
                 _state: &Self::State,
             ) -> impl Iterator<Item = bevy_ecs::query::EcsAccessType<'_>> {
-                std::iter::empty()
+                core::iter::empty()
             }
         }
         unsafe impl #impl_generics #imports::ReadOnlyQueryData for &#trait_object
@@ -304,7 +309,7 @@ fn impl_trait_query(arg: TokenStream, item: TokenStream) -> Result<TokenStream2>
             fn iter_access(
                 _state: &Self::State,
             ) -> impl Iterator<Item = bevy_ecs::query::EcsAccessType<'_>> {
-                std::iter::empty()
+                core::iter::empty()
             }
         }
 

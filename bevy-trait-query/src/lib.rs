@@ -257,6 +257,9 @@
 //! | 1-2 matches       | -              | 14.619 µs           | 92.876 µs         |
 //!
 
+// Required to make proc macros work in bevy-trait-query itself.
+extern crate self as bevy_trait_query;
+
 mod internal;
 #[cfg(test)]
 mod tests;
